@@ -109,3 +109,11 @@ app.get('/api/plugins/:id', function(req, res) {
  	});
  
 });
+
+// Creation d'un plugin par envoi d'un formulaire
+// On fera l'insert par un POST, c'est le standard REST
+app.post('/api/plugins', multerData.fields([]), function(req, res) {
+ 	mongoDBModule.createPlugin(req.body, function(data) {
+ 		res.send(JSON.stringify(data)); 
+ 	});
+});
