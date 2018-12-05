@@ -10,7 +10,6 @@ export default class Home extends React.Component {
             maxPag:0,
             nbPlugi:0
           }
-          this.update = this.update.bind(this);
     }
       
   componentWillMount() {
@@ -26,11 +25,16 @@ export default class Home extends React.Component {
     .then(res => { // data c'est le texte json de response ci-dessus
       let plugins = [];
       res.data.forEach((el) => {
+        if(el.screenshot_href==''){
+               console.log("fegegegeg");
+        }
+        if(el.name.length>40){
         let plugin = {
            name:el.name,
+           screenshot_href:el.screenshot_href
          }
         plugins.push(plugin);
-      });
+      }});
       this.setState({
        plugins: plugins
      });
@@ -40,17 +44,8 @@ export default class Home extends React.Component {
     });
  }
 
- update(event){
-    let target = event.target;
-    let name = target.name;
-    let value = target.value;
-    this.setState({
-      [name] : value
-    });
-  }
-
   getMaxPage(){
-    fetch("http://localhost:8080/api/plugin/count")
+    fetch("http://localhost:8080/api/dataPlugin/count")
     .then(response => {
       return response.json();
     }).then(resp => {
@@ -64,37 +59,33 @@ export default class Home extends React.Component {
 
 
     render(){
-        let listePlugins = this.state.plugins.map( (plugin, index) => {
-            return(
-              <tr key={index}>
-                <td>{plugin.name}</td>
-                <td>
-                </td>
-              </tr>
+     
+          let listePlugins = this.state.plugins.map( (plugin, index) => {
+            return(    
+              <div key={index} id="blocPlugin" >
+                  <br/>
+                  <div><center>ndlzjflzbflb</center></div>
+                  <br/>
+                  <div >{<img src={plugin.screenshot_href }/>}</div><br/>
+                  <div ><center>{plugin.name}</center></div>
+                  <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     
+              </div>
             )}
           );
 
-        return (
-            <div>
-                <h1>Home page</h1>
-                <div id="entete">
-                {this.state.plugins ? <p>Nombre de plugins : {this.state.plugins.length}</p>: <p>Chargement</p> }
-                  
-                  </div>
-                    <table  id="myTable" >
-                    <thead >
-                    <tr>
-                        <th><p>Nom</p></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                       {
-                         listePlugins
-                       }
-                    </tbody>
-                    </table>
-                  </div>
-        )
+          return (
+              <div>
+                <div id="entete-plugin">
+                  <br/>
+                  <h1><center>Inspiration in all the Classics</center></h1>
+                  <h3><center> All the famous stompboxes, FX, synths, sequencers and amps that made history</center></h3>
+                  <br/>
+                 </div>                 
+                 <div id="divContener">
+                  {  listePlugins } 
+                    </div>           
+                    </div>
+          )
     }
 
 }

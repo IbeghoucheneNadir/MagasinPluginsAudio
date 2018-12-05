@@ -26,7 +26,6 @@ export default class About extends React.Component{
 
       createPlugin(event){
        
-        alert("felngelrnl");
         event.preventDefault();
     
     
