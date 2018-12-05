@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#Globaldiv{
+border-width: 2px;
+border-color: blue;
+margin-top: 100px;
+margin-left: 300px;
+}
+
+#formDiv{
+  margin-top: 30px;
+  margin-left:100px;
+}
+
+#formDiv button{
+  margin-left:50px;
+}
