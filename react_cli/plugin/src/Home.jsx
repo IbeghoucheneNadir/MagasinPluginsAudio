@@ -64,8 +64,7 @@ export default class Home extends React.Component {
             return(    
               <div key={index} id="blocPlugin" >
                   <br/>
-                  <div><center>ndlzjflzbflb</center></div>
-                  <br/>
+                  <div><center><h2>ndlzjflzbflb</h2></center></div>
                   <div >{<img src={plugin.screenshot_href }/>}</div><br/>
                   <div ><center>{plugin.name}</center></div>
                   <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     

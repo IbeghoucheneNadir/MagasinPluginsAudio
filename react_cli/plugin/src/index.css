@@ -13,16 +13,10 @@ code {
     monospace;
 }
 
-#Globaldiv{
-border-width: 2px;
-border-color: blue;
-margin-top: 100px;
-margin-left: 300px;
-}
-
 #formDiv{
   margin-top: 30px;
   margin-left:100px;
+  
 }
 
 #formDiv button{
@@ -82,9 +76,8 @@ img{
   text-align: center;
   margin-left:auto;
   margin-right:auto;
-  color: rgb(255, 34, 0);;
+  color: rgb(255, 34, 0);
 }
-
 
 #divContener{
   margin-left: 12.5%;
@@ -95,9 +88,10 @@ color:white;
 }
 
 #blocPlugin{
+
   width:25%;
   height: 500px;
-  background-color:rgb(51,51,51);
+  background-color:#666;
   color: white;
   display: inline-block;
   margin: 20px;
@@ -105,7 +99,15 @@ color:white;
   text-decoration:none;
   font-size: 14px;
 }
-#blocPlugin:hover {background-color:white;}
+#blocPlugin:hover {
+  background-color:white;
+  color: rgb(255, 34, 0);
+}
+
+#blocPlugin:hover #boutonDetail{
+  background-color: rgb(255, 34, 0);
+  color:white;
+}
 
 body{
   background-color:rgb(51,51,51);
