@@ -62,6 +62,7 @@ export default class Home extends React.Component {
      
           let listePlugins = this.state.plugins.map( (plugin, index) => {
             return(    
+              
               <div key={index} id="blocPlugin" >
                   <br/>
                   <div><center><h2>ndlzjflzbflb</h2></center></div>
@@ -69,6 +70,8 @@ export default class Home extends React.Component {
                   <div ><center>{plugin.name}</center></div>
                   <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     
               </div>
+              
+
             )}
           );
 
@@ -82,6 +85,9 @@ export default class Home extends React.Component {
                  </div>                 
                  <div id="divContener">
                   {  listePlugins } 
+                  <div id="blocBeforeShop"><h2>Explore hundreds more on our Plugin page</h2></div>
+                  <div id="boutonDetailShop"><h3><center>GO TO PLUGIN SHOP</center></h3></div>     
+<br/><br/><br/>
                     </div>           
                     </div>
           )
