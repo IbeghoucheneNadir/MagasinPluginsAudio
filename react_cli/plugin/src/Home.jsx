@@ -1,6 +1,5 @@
-
 import React from 'react';
- 
+import {Link} from 'react-router-dom';
 export default class Home extends React.Component {
 
     constructor(props){
@@ -8,7 +7,8 @@ export default class Home extends React.Component {
         this.state = {
             plugins:[],
             maxPag:0,
-            nbPlugi:0
+            nbPlugi:0,
+            plugin:null
           }
     }
       
@@ -25,11 +25,10 @@ export default class Home extends React.Component {
     .then(res => { // data c'est le texte json de response ci-dessus
       let plugins = [];
       res.data.forEach((el) => {
-        if(el.screenshot_href==''){
-               console.log("fegegegeg");
-        }
+    
         if(el.name.length>40){
         let plugin = {
+           _id:el._id,
            name:el.name,
            screenshot_href:el.screenshot_href
          }
@@ -57,21 +56,23 @@ export default class Home extends React.Component {
     });
   }
 
-
     render(){
-     
+      console.log(this.state.plugins);
+
           let listePlugins = this.state.plugins.map( (plugin, index) => {
             return(    
-              
-              <div key={index} id="blocPlugin" >
-                  <br/>
-                  <div><center><h2>ndlzjflzbflb</h2></center></div>
-                  <div >{<img src={plugin.screenshot_href }/>}</div><br/>
-                  <div ><center>{plugin.name}</center></div>
-                  <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     
-              </div>
-              
-
+              <Link to={{
+                pathname:'/detailsPlugin/' + plugin._id,
+                }}>
+                  <div key={index} id="blocPlugin">
+                      <br/>
+                      
+                      <div><center><h2>ndlzjflzbflb</h2></center></div>
+                      <div >{<img src={plugin.screenshot_href }/>}</div><br/>
+                      <div ><center>{plugin.name}</center></div>
+                      <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     
+                  </div>
+              </Link>
             )}
           );
 
@@ -79,18 +80,17 @@ export default class Home extends React.Component {
               <div>
                 <div id="entete-plugin">
                   <br/>
-                  <h1><center>Inspiration in all the Classics</center></h1>
-                  <h3><center> All the famous stompboxes, FX, synths, sequencers and amps that made history</center></h3>
-                  <br/>
+                        <h1><center>Inspiration in all the Classics</center></h1>
+                        <h3><center> All the famous stompboxes, FX, synths, sequencers and amps that made history</center></h3>
+                        <br/>
                  </div>                 
                  <div id="divContener">
-                  {  listePlugins } 
-                  <div id="blocBeforeShop"><h2>Explore hundreds more on our Plugin page</h2></div>
-                  <div id="boutonDetailShop"><h3><center>GO TO PLUGIN SHOP</center></h3></div>     
-<br/><br/><br/>
-                    </div>           
-                    </div>
+                       {listePlugins} 
+                        <div id="blocBeforeShop"><h2>Explore hundreds more on our Plugin page</h2></div>
+                        <div id="boutonDetailShop"><h3><center>GO TO PLUGIN SHOP</center></h3></div>     
+                        <br/><br/><br/>
+                 </div>           
+              </div>
           )
     }
-
 }

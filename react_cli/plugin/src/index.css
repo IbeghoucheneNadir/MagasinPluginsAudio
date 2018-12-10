@@ -169,3 +169,31 @@ text-align: center;
 body{
   background-color:rgb(51,51,51);
 }
+#GlobaldivDetail{
+  background-color: white;
+}
+#blocDetailPlugin{
+  height: 1000px;
+  background-color: #f6f6f6;
+  color: white
+}
+
+#blocPluginD{
+  width: 60%;
+  margin-left: 20%;
+  background-color:white;
+}
+
+#blocDetailImage{
+  width: 50%;
+  margin-left: 25%;
+  
+  background-color: blue;
+  color:red;
+}
+/*
+#blocDetailImage img{
+  width: 30%;
+  height:30% ;
+
+}*/

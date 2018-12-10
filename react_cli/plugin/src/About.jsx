@@ -1,6 +1,5 @@
 import React from 'react'
 import './index.css';
- 
 export default class About extends React.Component{
 
     state={
@@ -8,6 +7,8 @@ export default class About extends React.Component{
         plugins: [],
         showNewPlugin: false
     };
+
+    
 
     change=e =>{
         this.setState({
@@ -64,18 +65,18 @@ export default class About extends React.Component{
     render(){
         return (
             <div id="Globaldiv" >  <h1>Create Plugin</h1>
-       <div id="formDiv">
-        <form id="formulaireInsertionform">
-            <input
-            id="namePlugin"
-            type="text"
-            name="nom"
-            required
-            placeholder="name plugin"/>
-            <br/>
-          <button onClick={(event) => this.createPlugin(event)} >Submit</button>
-        </form>
-        </div>
-        </div>  );
+                <div id="formDiv">
+                  <form id="formulaireInsertionform">
+                      <input
+                      id="namePlugin"
+                      type="text"
+                      name="nom"
+                      required
+                      placeholder="name plugin"/>
+                      <br/>
+                    <button onClick={(event) => this.createPlugin(event)} >Submit</button>
+                  </form>
+                </div>
+            </div>  );
     }
 }
