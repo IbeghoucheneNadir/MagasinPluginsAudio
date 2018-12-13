@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-export default class Home extends React.Component {
+export default class ShowPlugins extends React.Component {
 
     constructor(props){
         super(props);
@@ -43,6 +43,19 @@ export default class Home extends React.Component {
     });
  }
 
+  getMaxPage(){
+    fetch("http://localhost:8080/api/dataPlugin/count")
+    .then(response => {
+      return response.json();
+    }).then(resp => {
+      let maxpagevalue = Math.ceil(resp.data/this.state.nbPlugin)-1;
+      this.setState({maxPage: maxpagevalue, page:maxpagevalue});
+
+    }).catch(err => {
+      console.log("erreur dans le get : " + err)
+    });
+  }
+
     render(){
       console.log(this.state.plugins);
 
@@ -74,11 +87,7 @@ export default class Home extends React.Component {
                  <div id="divContener">
                        {listePlugins} 
                         <div id="blocBeforeShop"><h2>Explore hundreds more on our Plugin page</h2></div>
-                        <Link to={{
-                        pathname:'/ShowPlugins/',
-                         }}>
-                        <div id="boutonDetailShop"><h3><center>GO TO PLUGIN SHOP</center></h3></div>  
-                        </Link>   
+                        <div id="boutonDetailShop"><h3><center>GO TO PLUGIN SHOP</center></h3></div>     
                         <br/><br/><br/>
                  </div>           
               </div>

@@ -3,6 +3,7 @@ import './App.css';
 import Home from './Home'
 import About from './About'
 import DetailsPlugin from './DetailsPlugin'
+import ShowPlugins from './ShowPlugins'
 
 
 import {Route} from 'react-router';
@@ -22,6 +23,7 @@ class App extends Component {
         <Route exact path="/" component={Home}/>
         <Route path="/about" component={About}/>
         <Route path="/detailsPlugin/:id" component={DetailsPlugin}/>
+        <Route path="/ShowPlugins" component={ShowPlugins}/>
         </div>
       </Router>
       </div>

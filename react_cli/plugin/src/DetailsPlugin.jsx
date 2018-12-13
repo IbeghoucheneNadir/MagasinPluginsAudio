@@ -43,30 +43,84 @@ getDataFromServer() {
       let plug=this.state.plugin.plugin;
       let name = "ups";
       let img="";
+      let author="";
+      let comment="";
+      let parametres="";
+      let control="";
 
       if(plug) {
-        console.log(plug.name); 
-        //debugger; 
         name = plug.name;  
         img=plug.screenshot_href;
-      }
+        comment=plug.comment;
+        author=plug.author;
+        control=plug.ports;
+       console.log(control);
 
+      /*  nad = parametres.map((element, index) => {
+
+        return (
+
+            <tr key={index} className="parametre-row">
+                <td>{element.controler}</td>
+                <td>{element.default}</td>
+                <td>{element.min}</td>
+                <td>{element.max}</td>
+            </tr>
+        
+        )
+    })*/
+  }
       return (
           <div>
-            <div id="pagePluginDetail">
-              <br/>
-                    <h1><center>Inspiration in all the Classics</center></h1>
-                    <br/>
-             </div>                 
-             <div id="blocDetailImage">
-                    <div>{name}</div>
-                    <div>{name}</div>
-                    <div>{name}</div>
-                    <div>{img}</div>
-                    <div> {<img src={img} alt=""/>}</div>
+                 <div class="containerDetailImage">
+                    <div class="header">
+                      <div class="author">
+                        <div class="author-info">
+                            <span class="author-name"> {author.name}</span><br/>
+                            <a href > {author.email}</a>
+                        </div>
+
+                      </div>
+                      <div class="pedalborad-count-container">{}
+                            <a href ></a>
+                            <span> </span>
+                      </div>
+                      <div class="title">
+                            <h2>{name}</h2>
+                      </div>
+
+
+                    </div>
+                    <div> 
+                        {<img src={img} alt=""/>}
+                    </div>
+
+                   
+                      <div class="plugin-category">Distortion</div>
+                   
+                   <p class="pedalboard-description">
+                        {comment}
+                   </p>
+                   <div class="plugin-control-ports">
+                   <table>
+                     <head>
+                       <th>Control</th>
+                       <th>Default</th>
+                       <th>Min</th>
+                       <th>Max</th>
+                     </head>
+                     <tbody>
+                      {//parametres
+                      }
+                     </tbody>
+                   </table>
+
+                   </div>
+
                     <br/><br/><br/>
              </div>           
           </div>
+        
       )
   }
 }
