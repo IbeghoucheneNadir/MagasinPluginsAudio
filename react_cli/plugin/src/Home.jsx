@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import './index.css';
+import homebillboard from './images/home-billboard.jpg';
 export default class Home extends React.Component {
 
     constructor(props){
@@ -53,22 +55,21 @@ export default class Home extends React.Component {
                 }}>
                   <div key={index} id="blocPlugin">
                       <br/>
-                      
-                      <div><center><h2>ndlzjflzbflb</h2></center></div>
+                      <div><center><h2>{plugin.name}</h2></center></div>
                       <div >{<img src={plugin.screenshot_href }/>}</div><br/>
-                      <div ><center>{plugin.name}</center></div>
-                      <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     
+                      <div id="boutonDetail"><h3>DETAILS</h3></div>     
                   </div>
               </Link>
             )}
           );
 
           return (
+            <div>
               <div class="blocPlogin">
                 <div id="entete-plugin">
                   <br/>
                         <h1><center>Inspiration in all the Classics</center></h1>
-                        <h3><center> All the famous stompboxes, FX, synths, sequencers and amps that made history</center></h3>
+                            <h3><center> All the famous stompboxes, FX, synths, sequencers and amps that made history</center></h3>
                         <br/>
                  </div>                 
                  <div id="divContener">
@@ -81,7 +82,8 @@ export default class Home extends React.Component {
                         </Link>   
                         <br/><br/><br/>
                  </div>           
-              </div>
+               </div>
+             </div>
             
           )
     }

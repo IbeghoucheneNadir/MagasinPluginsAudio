@@ -70,7 +70,6 @@ export default class ShowPlugins extends React.Component {
                       <br/>
                       <div class="imgPluginShow">{<img src={plugin.screenshot_href }/>}</div><br/>
                       <div ><center>{plugin.name}</center></div>
-                      <div id="boutonDetail"><h3><center>DETAILS</center></h3></div>     
                   </div>
               </Link>
             )}

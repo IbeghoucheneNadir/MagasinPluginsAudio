@@ -91,8 +91,8 @@ getDataFromServer() {
 
 
                     </div>
-                    <div> 
-                        {<img src={img} alt=""/>}
+                    <div class="imageDetail"> 
+                        <img src={img} alt=""/>
                     </div>
 
                    
