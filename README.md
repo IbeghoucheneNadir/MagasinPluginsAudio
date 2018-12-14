@@ -18,7 +18,7 @@ J'ai pas afficher touttes les infroamtions sur les plugins dans la page de détai
 Installation est test de projet :
 
 1. Back end  NosQL (mongodb)
-2. J'ai téléchargé le fichier contenant tout les plugins et je l'est importé dans ma base de données test (collection) 
+2. J'ai téléchargé le fichier contenant tout les plugins sur le lien https://api.moddevices.com/v2/lv2/plugins et je l'est importé dans ma base de données test (collection) 
 3. Le serveur : pour le serveur je me suis inspiré de ce qu'on a fait dans les tps, je l'ai nommé CRUD_NodeJS_Mongo (dossier)
 4. Le client  : J'ai utilisé le framwork React 
 
