@@ -28,7 +28,7 @@ export default class ShowPlugins extends React.Component {
     .then(res => { // data c'est le texte json de response ci-dessus
       let plugins = [];
       res.data.forEach((el) => {
-        if(el.name.length>30){
+        if(el.name.length>30 && el.screenshot_href!=null){
         let plugin = {
            _id:el._id,
            name:el.name,
