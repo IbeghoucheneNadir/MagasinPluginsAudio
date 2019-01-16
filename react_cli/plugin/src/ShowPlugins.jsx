@@ -68,7 +68,7 @@ export default class ShowPlugins extends React.Component {
                 }}>
                   <div key={index} id="blocPluginShow">
                       <br/>
-                      <div class="imgPluginShow">{<img src={plugin.screenshot_href }/>}</div><br/>
+                      <div class="imgPluginShow"><img src={plugin.screenshot_href }/></div><br/>
                       <div ><center>{plugin.name}</center></div>
                   </div>
               </Link>

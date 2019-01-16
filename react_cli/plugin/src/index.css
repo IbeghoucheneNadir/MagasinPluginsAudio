@@ -388,3 +388,7 @@ button, input, select, textarea {
   margin-left: 30%;
   width: 40%;
 }
+.imgPluginShow img {
+  margin-left: 10%;
+  width: 40%;
+}

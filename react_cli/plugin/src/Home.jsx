@@ -28,7 +28,7 @@ export default class Home extends React.Component {
       let plugins = [];
       res.data.forEach((el) => {
     
-        if(el.name.length>40){
+        if(el.name.length>40 && el.screenshot_href){
         let plugin = {
            _id:el._id,
            name:el.name,
