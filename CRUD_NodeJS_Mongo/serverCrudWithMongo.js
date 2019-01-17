@@ -74,7 +74,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get('/api/plugins/count', function(req, res) {
+app.get('/api/dataPlugin/count', function(req, res) {
    
     let name = req.query.name || '';
 
@@ -90,7 +90,14 @@ app.get('/api/plugins/count', function(req, res) {
 // On va récupérer des plugins par un GET (standard REST) 
 app.get('/api/plugins', function(req, res) { 
 
- 	mongoDBModule.findPlugins(function(data,count) {
+	// Si présent on prend la valeur du param, sinon 1
+    let page = parseInt(req.query.page || 1);
+    // idem si present on prend la valeur, sinon 10
+    let pagesize = parseInt(req.query.pagesize || 10);
+
+	let name = req.query.name || '';
+	
+ 	mongoDBModule.findPlugins(page, pagesize, name, function(data,count) {
  		var objdData = {
  			msg:"plugin recherchés avec succès",
  			data: data,

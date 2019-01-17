@@ -9,7 +9,7 @@ export default class Home extends React.Component {
         this.state = {
             plugins:[],
             maxPag:0,
-            nbPlugin:56,
+            nbPlugin:9,
             plugin:null,
             page:1,
             nomPlugin:''
@@ -31,14 +31,13 @@ export default class Home extends React.Component {
       let plugins = [];
       res.data.forEach((el) => {
     
-        if(el.screenshot_href){
         let plugin = {
            _id:el._id,
            name:el.name,
            screenshot_href:el.screenshot_href
          }
         plugins.push(plugin);
-      }
+      
     });
       this.setState({
        plugins: plugins

@@ -32,14 +32,12 @@ export default class ShowPlugins extends React.Component {
     .then(res => { // data c'est le texte json de response ci-dessus
       let plugins = [];
       res.data.forEach((el) => {
-       // if(el.screenshot_href!=null){
         let plugin = {
            _id:el._id,
            name:el.name,
            screenshot_href:el.screenshot_href
          }
         plugins.push(plugin);
-      // }
        });
       this.setState({
        plugins: plugins
