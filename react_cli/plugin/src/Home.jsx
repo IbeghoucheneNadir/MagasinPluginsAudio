@@ -9,8 +9,10 @@ export default class Home extends React.Component {
         this.state = {
             plugins:[],
             maxPag:0,
-            nbPlugi:0,
-            plugin:null
+            nbPlugi:9,
+            plugin:null,
+            page:1,
+
           }
     }
       
@@ -20,7 +22,7 @@ export default class Home extends React.Component {
   }
 
   getDataFromServer() {
-    fetch('http://localhost:8080/api/plugins')
+    fetch('http://localhost:8080/api/plugins?page='+ this.state.page + "&pagesize=" + this.state.nbPlugin+"&name="+this.state.nomPlugin)
     .then(response => {
       return response.json() // transforme le json texte en objet js
     })
@@ -28,7 +30,7 @@ export default class Home extends React.Component {
       let plugins = [];
       res.data.forEach((el) => {
     
-        if(el.name.length>40 && el.screenshot_href){
+        if(el.screenshot_href){
         let plugin = {
            _id:el._id,
            name:el.name,

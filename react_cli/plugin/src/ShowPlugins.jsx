@@ -9,33 +9,38 @@ export default class ShowPlugins extends React.Component {
         super(props);
         this.state = {
             plugins:[],
-            maxPag:0,
-            nbPlugi:0,
-            plugin:null
+            nbPlugin:16,
+            nomPlugin:'',
+            plugin:null,
+            page: 1,
+            a:1,
+            b:2,
+            c:3,
+            maxPage:'',
           }
     }
       
   componentWillMount() {
-    console.log("Component will mount");
     this.getDataFromServer();
   }
 
   getDataFromServer() {
-    fetch('http://localhost:8080/api/plugins')
+    fetch('http://localhost:8080/api/plugins?page='+ this.state.page + "&pagesize=" + this.state.nbPlugin+"&name="+this.state.nomPlugin)
     .then(response => {
       return response.json() // transforme le json texte en objet js
     })
     .then(res => { // data c'est le texte json de response ci-dessus
       let plugins = [];
       res.data.forEach((el) => {
-        if(el.name.length>30 && el.screenshot_href!=null){
+       // if(el.screenshot_href!=null){
         let plugin = {
            _id:el._id,
            name:el.name,
            screenshot_href:el.screenshot_href
          }
         plugins.push(plugin);
-       } });
+      // }
+       });
       this.setState({
        plugins: plugins
      });
@@ -45,6 +50,33 @@ export default class ShowPlugins extends React.Component {
     });
  }
 
+ naviger(event){
+    let num = event.target.innerText;
+        if(num==="Max"){
+              this.getMaxPage();
+              this.state.c=this.state.maxPage-1;
+              this.state.b=this.state.maxPage-2;
+        }
+        else
+        {
+              if(num==this.state.b && this.state.b!=2)
+              {
+                    this.state.b-=1;
+                    this.state.c-=1;
+                    }
+                    else if(num==this.state.a)
+                    {
+                      this.state.b=2;
+                      this.state.c=3;
+                    }
+                    else if(num==this.state.c)
+                    {
+                      this.state.c+=1;
+                      this.state.b+=1;
+                    }
+}
+  this.setState({page: num}, () => this.componentWillMount());
+}
   getMaxPage(){
     fetch("http://localhost:8080/api/dataPlugin/count")
     .then(response => {
@@ -91,9 +123,22 @@ export default class ShowPlugins extends React.Component {
                     </button>
                   </div>
                  </div>   
+                 <div className="navigation"><br/>
+                        <button type="button" id="idButton1" onClick={(event) => this.naviger(event)}><p>{this.state.a}</p></button>
+                        <button type="button" id="idButton2" onClick={(event) => this.naviger(event)}><p>{this.state.b}</p></button>
+                        <button type="button" id="idButton3" onClick={(event) => this.naviger(event)}><p>{this.state.c}</p></button>
+                        ........<button type="button" id="idButtonMax" onClick={(event) => this.naviger(event)}><p>Max</p></button>
+                </div>
+                    
                  <div id="divContenerShow">
                        {listePlugins} 
-                 </div>           
+                 </div>  
+                 <div className="navigation"><br/>
+                        <button type="button" id="idButton1" onClick={(event) => this.naviger(event)}><p>{this.state.a}</p></button>
+                        <button type="button" id="idButton2" onClick={(event) => this.naviger(event)}><p>{this.state.b}</p></button>
+                        <button type="button" id="idButton3" onClick={(event) => this.naviger(event)}><p>{this.state.c}</p></button>
+                        ........<button type="button" id="idButtonMax" onClick={(event) => this.naviger(event)}><p>Max</p></button>
+                </div>         
               </div>
             
           )
