@@ -124,20 +124,20 @@ export default class ShowPlugins extends React.Component {
                   </div>
                  </div>   
                  <div className="navigation"><br/>
-                        <button type="button" id="idButton1" onClick={(event) => this.naviger(event)}><p>{this.state.a}</p></button>
-                        <button type="button" id="idButton2" onClick={(event) => this.naviger(event)}><p>{this.state.b}</p></button>
-                        <button type="button" id="idButton3" onClick={(event) => this.naviger(event)}><p>{this.state.c}</p></button>
-                        ........<button type="button" id="idButtonMax" onClick={(event) => this.naviger(event)}><p>Max</p></button>
+                        <button type="button" id="idButton1" onClick={(event) => this.naviger(event)}><p class="numeroButton">{this.state.a}</p></button>
+                        <button type="button" id="idButton2" onClick={(event) => this.naviger(event)}><p class="numeroButton">{this.state.b}</p></button>
+                        <button type="button" id="idButton3" onClick={(event) => this.naviger(event)}><p class="numeroButton">{this.state.c}</p></button>
+                        ........<button type="button" id="idButtonMax" onClick={(event) => this.naviger(event)}><p class="numeroButton">Max</p></button>
                 </div>
                     
                  <div id="divContenerShow">
                        {listePlugins} 
                  </div>  
                  <div className="navigation"><br/>
-                        <button type="button" id="idButton1" onClick={(event) => this.naviger(event)}><p>{this.state.a}</p></button>
-                        <button type="button" id="idButton2" onClick={(event) => this.naviger(event)}><p>{this.state.b}</p></button>
-                        <button type="button" id="idButton3" onClick={(event) => this.naviger(event)}><p>{this.state.c}</p></button>
-                        ........<button type="button" id="idButtonMax" onClick={(event) => this.naviger(event)}><p>Max</p></button>
+                        <button type="button" id="idButton1" onClick={(event) => this.naviger(event)}><p class="numeroButton">{this.state.a}</p></button>
+                        <button type="button" id="idButton2" onClick={(event) => this.naviger(event)}><p class="numeroButton">{this.state.b}</p></button>
+                        <button type="button" id="idButton3" onClick={(event) => this.naviger(event)}><p class="numeroButton">{this.state.c}</p></button>
+                        ........<button type="button" id="idButtonMax" onClick={(event) => this.naviger(event)}><p class="numeroButton">Max</p></button>
                 </div>         
               </div>
             

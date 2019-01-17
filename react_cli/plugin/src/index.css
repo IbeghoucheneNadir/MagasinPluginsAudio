@@ -402,7 +402,7 @@ button, input, select, textarea {
   background-color: black;
   border-radius: 5px;
 }
-p{
+.numeroButton{
   color: blanchedalmond;
   margin-top: 8px;
 }
