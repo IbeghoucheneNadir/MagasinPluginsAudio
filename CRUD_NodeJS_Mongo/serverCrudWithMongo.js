@@ -37,11 +37,6 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/MyTableVue', function(req, res) {
-    res.sendFile(__dirname + '/public/TableVue.html');
-});
-
-
 // Test de la connexion à la base
 app.get('/api/connection', function(req, res) {
 	// Pour le moment on simule, mais après on devra

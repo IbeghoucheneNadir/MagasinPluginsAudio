@@ -27,6 +27,7 @@ exports.countPlugins = function(name,callback) {
         if(!err){
         	if(name==''){
                 db.collection('plugins')
+                    .find({ "screenshot_href":{$ne:null},$where:"this.screenshot_href.length >0"})
                     .count()
                     .then(rep => callback(rep));
 			}else {
@@ -63,29 +64,29 @@ exports.findPlugins = function(page, pagesize, name, callback) {
                         .then(rep=>callback(arr,rep))
                 });
         }
+     
         else{
                 let query = {
                     "name" : {$regex:".*"+name+".*",$options:"i"}
                 }
                 db.collection('plugins')
                     .find(query)
-                    .skip(page*pagesize)
                     .limit(pagesize)
                     .toArray()
                     .then(arr=>{
                         db.collection('plugins')
                             .find(query)
+                            .skip(page*pagesize)
                             .count()
                             .then(rep=>callback(arr,rep))
-                });
+                      });
+                 }
+            }
+        else{
+            callback(-1);
         }
-    }
-    else{
-        callback(-1);
-    }
-});
+    });
 };
-	
 
 exports.findPluginById = function(id, callback) {
     MongoClient.connect(url, function(err, client) {
