@@ -76,6 +76,15 @@ export default class ShowPlugins extends React.Component {
 }
   this.setState({page: num}, () => this.componentWillMount());
 }
+
+
+changeOutputTable(event){
+  let nomRechercher = document.getElementById("nomRechercher").value;
+    if(this.state.nomPlugin !== nomRechercher){
+      this.setState({nomPlugin: nomRechercher},() =>  this.componentWillMount());
+      console.log("nomPlugin " +this.state.nomPlugin)    } 
+}
+
   getMaxPage(){
     fetch("http://localhost:8080/api/dataPlugin/count")
     .then(response => {
@@ -116,7 +125,12 @@ export default class ShowPlugins extends React.Component {
                  </div>
                  <div class="containerShow">
                   <div class="search-container whiteframe">
-                    <input class="feed-search-text" type="text" placeholder="Search plugins"/>
+                    <input class="feed-search-text"
+                           id="nomRechercher"
+                           type="text"
+                           placeholder="Search plugins"
+                           onChange={(event)=>this.changeOutputTable(event)}  
+                    />
                     <button class="feed-search-button" type="bouton">
                       <img class="imgSearch" alt="Search" src={searchLogo}></img>
                     </button>
