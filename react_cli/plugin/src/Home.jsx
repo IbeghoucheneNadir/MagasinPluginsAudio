@@ -9,9 +9,10 @@ export default class Home extends React.Component {
         this.state = {
             plugins:[],
             maxPag:0,
-            nbPlugi:9,
+            nbPlugin:56,
             plugin:null,
             page:1,
+            nomPlugin:''
 
           }
     }
@@ -37,7 +38,8 @@ export default class Home extends React.Component {
            screenshot_href:el.screenshot_href
          }
         plugins.push(plugin);
-      }});
+      }
+    });
       this.setState({
        plugins: plugins
      });
