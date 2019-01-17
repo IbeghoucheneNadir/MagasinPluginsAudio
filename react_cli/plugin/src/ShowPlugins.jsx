@@ -16,7 +16,7 @@ export default class ShowPlugins extends React.Component {
             a:1,
             b:2,
             c:3,
-            maxPage:'',
+            maxPage:this.getMaxPage(),
           }
     }
       
@@ -54,6 +54,7 @@ export default class ShowPlugins extends React.Component {
               this.getMaxPage();
               this.state.c=this.state.maxPage-1;
               this.state.b=this.state.maxPage-2;
+              
         }
         else
         {
@@ -67,7 +68,7 @@ export default class ShowPlugins extends React.Component {
                       this.state.b=2;
                       this.state.c=3;
                     }
-                    else if(num==this.state.c)
+                    else if(num==this.state.c && num!=(this.state.maxPage-1))
                     {
                       this.state.c+=1;
                       this.state.b+=1;
