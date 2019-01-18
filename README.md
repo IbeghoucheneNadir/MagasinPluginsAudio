@@ -6,7 +6,9 @@ Fonctionnnalité réalisé :
 1. Afficher un catalogue contenant les plugins disponbles
 2. Si en clique  sur la zone détails on va vers la page de détails de plugin 
 3. Si en clique sur le bouton GO TO PLUGIN SHOP on va vers la page contenant tout les plugins
-4. Si en clique sur plugin, on se verra rediriger vers la page de détail de se dernier
+4. Si en clique sur plugin, on se verra rediriger vers la page de détail de ce dernier
+5. Pagination
+6. Recherche de plugin par nom (zone de recherche) 
 
 Remarque :
 

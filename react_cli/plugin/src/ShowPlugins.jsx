@@ -99,7 +99,6 @@ changeOutputTable(event){
   }
 
     render(){
-      console.log(this.state.plugins);
 
           let listePlugins = this.state.plugins.map( (plugin, index) => {
             return(    

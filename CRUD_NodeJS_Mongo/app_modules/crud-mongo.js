@@ -63,8 +63,7 @@ exports.findPlugins = function(page, pagesize, name, callback) {
                         .count()
                         .then(rep=>callback(arr,rep))
                 });
-        }
-     
+        }   
         else{
                 let query = {
                     "name" : {$regex:".*"+name+".*",$options:"i"}
